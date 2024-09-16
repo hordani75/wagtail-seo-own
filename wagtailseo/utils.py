@@ -42,7 +42,8 @@ def get_absolute_media_url(site: Site) -> str:
     """
     if MEDIA_IS_ABSOLUTE:
         return ""
-
+    if site is None or not hasattr(site, 'root_url'):
+        return "/" 
     return site.root_url
 
 
